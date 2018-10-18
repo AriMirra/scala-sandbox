@@ -33,6 +33,8 @@ object PointOld {
 // implementa el equals, toString, apply, pattern matching, etc.
 case class Point(x: Int, y: Int) {
   def sum: Int = x + y
+  def add(p: Point): Point = Point(x + p.x, y + p.y)
+  def +(p: Point): Point = Point(x + p.x, y + p.y)
 }
 
 object PointApp extends App {
@@ -40,11 +42,17 @@ object PointApp extends App {
   val o2 = new PointOld(1, 2)
   val o3 = PointOld.minX(o1, o2)
 
-  PointOld.ZERO //puedo llamar a las variables de la clase
+  val zero = PointOld.ZERO //puedo llamar a las variables de la clase
 
   val a = Point(0,5)
   val b = Point(3,3)
   val c = b.copy(x = 2)
+
+  val sum1 = a.add(b)
+  val sum2 = a add b
+
+  val sum3 = a.+(b)
+  val sum4 = a + b
 
   val str = c match {
     case Point(0, 0) => "origen"
