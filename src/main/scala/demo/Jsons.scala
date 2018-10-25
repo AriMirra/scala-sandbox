@@ -1,12 +1,12 @@
 package demo
 
 case class Book(
-               title: String,
-               author: String,
-               categories: List[String]
-               )
+   title: String,
+   author: String,
+   categories: List[String]
+)
 
-class Jsons {
+object Jsons extends App{
   import io.circe._
   import io.circe.generic.auto._
   import io.circe.parser._
@@ -21,6 +21,6 @@ class Jsons {
   val json: String = book.asJson.spaces2
   println(json)
 
-  val newBook = decode[Book](json)
+  val newBook: Either[Error, Book] = decode[Book](json)
   println(newBook)
 }

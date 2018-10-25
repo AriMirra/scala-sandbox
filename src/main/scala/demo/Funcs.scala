@@ -15,6 +15,7 @@ object Funcs extends App{
   def f1(p: Int => Int) = println("p: " + p(5))
 
   val myFunction: Int => Int = (n: Int) => n + 1
+
   println(f1(myFunction))
   println(f1((n: Int) => n + 1))
   println(f1(n => n + 1))
@@ -37,7 +38,7 @@ object Funcs extends App{
     }
   }
 
-  println(partialFuncion(2))
+  // en la función completa no puedo saber si va a fallar o no
   println(completeFunction(2))
 
   // puedo fijarse si está definida
@@ -76,8 +77,8 @@ object Funcs extends App{
   def f3(p: => Int) = {
     println("f3.start")
 
-    p()
-    p()
+//    p()
+//    p()
 
     println("f3.end")
   }
