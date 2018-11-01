@@ -21,7 +21,6 @@ object FuncStructs extends App {
     val id: String = u.alias.getOrElse("undefined")
 //    println(s"User: ${u.name} (alias: $id)")
   }
-
   def readInt: Either[Exception, Int] = {
     val in: String = StdIn.readLine("Enter an integer: ")
     try{
