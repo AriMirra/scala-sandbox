@@ -14,10 +14,8 @@ case object GetStats
 class Counter extends Actor {
   var total: Int = 0
   override def receive: Receive = {
-    case Count(value) =>
-      total += value
-    case GetStats =>
-      sender ! Stats(total) //el sender se guarda autmáticamente de forma implícita
+    case Count(value) => total += value
+    case GetStats => sender ! Stats(total) //el sender se guarda autmáticamente de forma implícita
   }
 }
 
@@ -26,8 +24,7 @@ class Counter extends Actor {
   */
 class Printer extends Actor {
   override def receive: Receive = {
-    case msg =>
-      println(s"Msg: $msg")
+    case msg => println(s"Msg: $msg")
   }
 }
 

@@ -55,8 +55,8 @@ object Funcs extends App{
   def f1(p: Int) = {
     println("f1.start")
 
-    p
-    p
+//    p
+//    p
 
     println("f1.end")
   }

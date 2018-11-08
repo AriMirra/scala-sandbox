@@ -46,7 +46,7 @@ class CrawlerPrinter extends Actor {
     case FetchedURL(url, content) =>
       println(s"[Printer] Fetched URL: $url content: ${content.take(20)}...")
     case Parsed(url, page) =>
-      println(s"[Printer] Parsed $url with ${page.links.size} links")
+//      println(s"[Printer] Parsed $url with ${page.links.size} links")
   }
 }
 
@@ -79,9 +79,9 @@ class Crawler extends Actor {
       parser ! Parse(url, content)
 
     case Parsed(url, webPage) =>
-      originalSender ! FoundPage(root, url, webPage)
-
-      pending = pending ++ (webPage.links.toSet -- processed)
+//      originalSender ! FoundPage(root, url, webPage)
+//
+//      pending = pending ++ (webPage.links.toSet -- processed)
 
       pending.takeRight(10).foreach{ p =>
         processed += p

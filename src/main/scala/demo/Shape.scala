@@ -45,7 +45,7 @@ object Objects {
     override def compare(x: P, y: P): Int = 0
   }
 
-  implicit val ordering: Ordering[P] = Ordering.by(e => e(e.x, e.y))
+//  implicit val ordering: Ordering[P] = Ordering.by(e => e(e.x, e.y))
 }
 
 
