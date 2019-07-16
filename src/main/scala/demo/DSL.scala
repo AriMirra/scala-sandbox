@@ -16,7 +16,7 @@ object DSL extends App{
   }
 
   object Break {
-    private  class BreakException extends RuntimeException
+    private class BreakException extends RuntimeException
     private val bExc = new BreakException
 
     def breakable(op: => Unit): Unit = {

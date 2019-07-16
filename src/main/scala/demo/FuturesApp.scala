@@ -10,16 +10,16 @@ object FuturesApp extends App {
   def downloadSync(url: String): String = {
     Source.fromURL(url).getLines().mkString("\n")
   }
-//  Future {
-//    val c1 = downloadSync("https://scala-lang.org")
-//    println("c1: " + c1.take(50) + "\n")
-//  }
-//  Future {
-//    val c2 = downloadSync("http://scala-android.org")
-//    println("c2: " + c2.take(50) + "\n")
-//  }
-//  StdIn.readLine("Press ENTER to terminate \n")
 
+  Future {
+    val c1 = downloadSync("https://scala-lang.org")
+    println("c1: " + c1.take(50) + "\n")
+  }
+  Future {
+    val c2 = downloadSync("http://scala-android.org")
+    println("c2: " + c2.take(50) + "\n")
+  }
+  StdIn.readLine("Press ENTER to terminate \n")
 
   def downloadAsync(url: String): Future[String] = {
     Future{

@@ -19,9 +19,9 @@ class B extends T1 with T2{
 }
 
 object Mixins extends App {
-  new B().helloT1
-  new B().helloT2
-  new B().hello
+  println(new B().helloT1)
+  println(new B().helloT2)
+  println(new B().hello)
 }
 
 class Person(val name: String)

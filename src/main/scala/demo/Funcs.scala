@@ -12,14 +12,14 @@ object Funcs extends App{
   val double: Int => Int = mul2(2)(_)
   val double2: Function1[Int, Int] = double
 
-  def f1(p: Int => Int) = println("p: " + p(5))
+  def f1(p: Int => Int): Unit = println("p: " + p(5))
 
-  val myFunction: Int => Int = (n: Int) => n + 1
+  val myFunction: Int => Int = _ + 1
 
-  println(f1(myFunction))
-  println(f1((n: Int) => n + 1))
-  println(f1(n => n + 1))
-  println(f1(_ + 1))
+  f1(myFunction)
+  f1((n: Int) => n + 1)
+  f1(n => n + 1)
+  f1(_ + 1)
 
   // partial function
   val partialFuncion: PartialFunction[Any, Int] = {
@@ -52,7 +52,7 @@ object Funcs extends App{
 
 
   // Functions by value & name
-  def f1(p: Int) = {
+  def f1(p: Int): Unit = {
     println("f1.start")
 
 //    p
@@ -61,7 +61,7 @@ object Funcs extends App{
     println("f1.end")
   }
 
-  def f2(p: () => Int) = {
+  def f2(p: () => Int): Unit = {
     println("f2.start")
 
     p()
@@ -69,29 +69,31 @@ object Funcs extends App{
 
     println("f2.end")
   }
+
+  def f3(p: => Int): Unit = {
+    println("f3.start")
+
+//    p()
+//    p()
+
+    println("f3.end")
+  }
+
+  def f4(p: => Int, cond: Boolean): Unit = {
+    println("f4.start")
+
+    if (cond) p
+
+    println("f4.end")
+  }
+
+
+  f1(10)
+
   f2(() => {
     println("Generating value for f2...")
     10
   })
 
-  def f3(p: => Int) = {
-    println("f3.start")
-
-//    p()
-//    p()
-
-    println("f3.end")
-  }
   f3(10) //si es una función bien, sino lo envuelve en una función automáticamente
-
-  def f4(p: => Int, cond: Boolean) = {
-    println("f3.start")
-
-    if (cond) p
-
-    println("f3.end")
-  }
-
-
-
 }

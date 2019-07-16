@@ -3,7 +3,7 @@ package demo
 import scala.io.Source
 
 object DemoApp extends App {
-  val lines = Source.fromFile("/Users/arielmirra/Documents/sandbox/scala-sandbox/src/main/test.txt").getLines().toList
+  val lines = Source.fromFile("/Users/arimi/Documents/test.txt").getLines().toList
 
   val words = lines
     .map(_.toLowerCase)

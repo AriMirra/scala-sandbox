@@ -35,6 +35,7 @@ case class Point(x: Int, y: Int) {
   def sum: Int = x + y
   def add(p: Point): Point = Point(x + p.x, y + p.y)
   def +(p: Point): Point = Point(x + p.x, y + p.y)
+  def minX(p1: Point, p2: Point): Int = if (p1.x < p2.x) p1.x else p2.x
 }
 
 object PointApp extends App {

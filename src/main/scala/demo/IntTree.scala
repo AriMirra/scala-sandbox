@@ -34,24 +34,27 @@ case class Leaf[T](value: T) extends Tree[T]
 
 object TreeApp extends App {
 
+  // doesn't print right
   def printTree(t: Tree[Any]): Unit = t match {
     case Branch(l, r) =>
-      print("Left:")
+      print("Left: ")
       printTree(l)
-      println("")
+      println(" ")
+      print("Right: ")
+      printTree(r)
     case Leaf(v) =>
       println(s"Value: $v")
   }
 
-  val tree: Tree[Int] = Branch(
+  val intTree: Tree[Int] = Branch(
     Branch(
       Leaf(1), Leaf(2)
     ),
     Leaf(4)
   )
 
-  val treeS: Tree[String] = Leaf("test")
+  val stringTree: Tree[String] = Leaf("test")
 
-  printTree(tree)
+  printTree(intTree)
 }
 

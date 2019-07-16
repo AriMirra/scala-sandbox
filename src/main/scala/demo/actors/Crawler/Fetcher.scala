@@ -37,6 +37,8 @@ class FetchWorker extends Actor {
         println(s"Downloading $url")
         val content = Source.fromURL(url).getLines().mkString("\n")
         sender() ! FetchedURL(url, content)
+      } catch {
+        case e: Exception => println(e.toString)
       }
   }
 }

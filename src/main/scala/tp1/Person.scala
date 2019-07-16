@@ -40,11 +40,13 @@ case class Person(name: String, age: Int, children: List[Person] = Nil) {
 }
 
 object PersonApp extends App {
-  val ariel = Person("ariel", 20, Nil)
-  val fabiana = Person("fabiana", 20, Nil)
+  val ariel = Person("ariel", 21, Nil)
+  val fabiana = Person("fabiana", 21, Nil)
+  val pelado = Person("francisquito", 2, Nil)
+  val marcelo = Person("marcelo", 33, List(pelado))
 
-  val sergio = Person("sergio", 50, List(ariel,fabiana))
-  val miriam = Person("miriam", 55, List(ariel,fabiana))
+  val sergio = Person("sergio", 50, List(ariel,fabiana, marcelo))
+  val miriam = Person("miriam", 55, List(ariel,fabiana, marcelo))
 
   println(sergio.grandChildren)
 }
